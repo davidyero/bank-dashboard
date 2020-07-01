@@ -1,0 +1,7 @@
+export enum TypeAccountEnum {
+  CERTIFIED_DEPOSIT_TERM,
+  CREDIT,
+  CREDIT_CARD,
+  CURRENT_ACCOUNT,
+  DEPOSIT_ACCOUNT
+}
