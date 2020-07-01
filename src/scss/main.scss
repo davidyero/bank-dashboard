@@ -1,2 +1,21 @@
 @import "grid";
 @import "colors";
+@import "variables";
+
+html, body, .container-app {
+  height: 100%;
+}
+
+.hidden-sm {
+  @media (max-width: map-get(map_get($break-points, sm), max-width)) {
+    display: none;
+  }
+}
+
+.center-component {
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}

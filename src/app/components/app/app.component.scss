@@ -1,0 +1,7 @@
+@import "src/scss/main";
+
+.container-app{
+  @media (max-width: map-get(map_get($break-points, sm), max-width)) {
+    padding: 0 20px;
+  }
+}

@@ -1,4 +1,14 @@
 export const LABELS = {
+  LOGIN: {
+    LOGIN: 'Iniciar Sesión',
+    USER: 'Usuario',
+    USER_PLACEHOLDER: 'Ingresa tu usuario',
+    PASSWORD: 'Contraseña',
+    PASSWORD_PLACEHOLDER: 'Ingresa tu contraseña',
+    MESSAGE: 'Recuerda no compartir estos datos',
+    ERROR_MESSAGE: 'Revisa por favor si tus datos son correctos',
+    WELCOME: 'Bienvenido al mejor banco'
+  },
   PRODUCTS: {
     CDT: 'CDT',
     CREDIT_CARD: 'Tarjeta de Crédito',

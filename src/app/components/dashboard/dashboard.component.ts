@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LABELS} from '../../shared/constants/labels-constants';
 
 @Component({
   selector: 'app-dashboard',

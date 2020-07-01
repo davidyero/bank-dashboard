@@ -5,7 +5,7 @@ export interface ProductModel {
   accountInformation?: AccountInformationModel;
   locked?: boolean;
   id?: string;
-  typeAccount?: TypeAccountEnum;
+  typeAccount?: string;
   openedDate?: string;
   closedDate?: string;
   dueDate?: string;
@@ -20,8 +20,9 @@ export interface ProductModel {
 
 export interface AccountInformationModel {
   accountIdentifier?: string;
-  productType?: TypeAccountEnum;
+  productType?: string;
   bank?: string;
+  currencyCode?: string;
 }
 
 export interface PeriodicityModel {

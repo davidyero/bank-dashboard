@@ -9,6 +9,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { PanelComponent } from './shared/components/panel/panel.component';
 import { BannerComponent } from './shared/components/banner/banner.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FooterComponent,
     PanelComponent,
     BannerComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

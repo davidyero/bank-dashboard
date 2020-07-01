@@ -1,0 +1,36 @@
+$total-variables: 10;
+
+@mixin create-padding($value) {
+  .pad-top-#{$value} {
+    padding-top: #{$value}px;
+  }
+  .pad-bottom-#{$value} {
+    padding-bottom: #{$value}px;
+  }
+  .pad-left-#{$value} {
+    padding-left: #{$value}px;
+  }
+  .pad-right-#{$value} {
+    padding-right: #{$value}px;
+  }
+}
+
+@mixin create-margin($value) {
+  .margin-top-#{$value} {
+    margin-top: #{$value}px;
+  }
+  .margin-bottom-#{$value} {
+    margin-bottom: #{$value}px;
+  }
+  .margin-left-#{$value} {
+    margin-left: #{$value}px;
+  }
+  .margin-right-#{$value} {
+    margin-right: #{$value}px;
+  }
+}
+
+@for $i from 1 to $total-variables {
+  @include create-padding($i*5);
+  @include create-margin($i*5);
+}
