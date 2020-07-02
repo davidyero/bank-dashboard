@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit{
             if (error.status === CONSTANTS.ERROR_RESPONSE.NOT_FOUND) {
               this.showErrorMessage = true;
             } else {
-              this.isLoading = true;
+              this.isLoading = false;
             }
           }
         );

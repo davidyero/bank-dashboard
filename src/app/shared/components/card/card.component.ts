@@ -31,7 +31,7 @@ export class CardComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    if (this.product.typeAccount === 'CREDIT_CARD') {
+    if (this.product && this.product.typeAccount === 'CREDIT_CARD') {
       this.getPercentage();
     }
   }
@@ -46,59 +46,61 @@ export class CardComponent implements OnInit, AfterViewChecked {
   }
 
   private validateProductType(): void {
-    this.productId = this.product.id;
-    switch (this.product.typeAccount) {
-      case 'DEPOSIT_ACCOUNT':
-        this.productName = this.labels.SAVING_ACCOUNT;
-        this.titleBalance = this.labels.BALANCE;
-        this.balance = this.product.productAccountBalances.saldo_disponible.amount.toLocaleString();
-        this.iconName = 'assets/icons/deposit-account.png';
-        break;
-      case 'CREDIT_CARD':
-        this.productName = this.labels.CREDIT_CARD;
-        this.titleBalance = this.labels.SAVING_ACCOUNT;
-        this.balance = this.product.productAccountBalances.cupo_disponible_compras_pesos.amount.toLocaleString();
-        this.productId = this.getMaskCreditCardNumber();
-        this.withPaymentDate = Boolean(this.product.paymentDate);
-        if (this.withPaymentDate) {
-          const date = new Date(this.product.paymentDate);
-          this.titleFooter = this.labels.PAYMENT_DATE;
-          this.informationFooter =
-            `${this.getDayWithTwoDigits(date.getDate().toString())}-${this.getDayWithTwoDigits(date.getMonth().toString())}-${date.getFullYear()}`;
-        } else {
-          const date = new Date(this.product.dueDate);
-          this.titleFooter = this.labels.DUE_DATE;
-          this.informationFooter =
-            `${this.getDayWithTwoDigits(date.getDate().toString())}-${this.getDayWithTwoDigits(date.getMonth().toString())}-${date.getFullYear()}`;
-        }
-        if (this.product.id[0] === '5') {
-          this.iconName = 'assets/icons/mastercard.svg';
-        } else {
-          this.iconName = 'assets/icons/visa.svg';
-        }
-        break;
-      case 'CURRENT_ACCOUNT':
-        this.productName = this.labels.CURRENT_ACCOUNT;
-        this.titleBalance = this.labels.AVAILABLE_BALANCE;
-        this.balance = this.product.productAccountBalances.saldo_disponible.amount.toLocaleString();
-        this.iconName = 'assets/icons/current-account.png';
-        break;
-      case 'CREDIT':
-        this.productName = this.labels.CREDIT;
-        this.titleBalance = this.labels.TO_PAY;
-        this.balance = '0';
-        this.iconName = 'assets/icons/credit.png';
-        break;
-      case 'CERTIFIED_DEPOSIT_TERM':
-        this.productName = this.labels.CDT;
-        this.titleBalance = this.labels.INVESTED_VALUE;
-        this.balance = this.product.productAccountBalances.valor_constitucion.amount.toLocaleString();
-        this.iconName = 'assets/icons/cdt.png';
-        break;
-      default:
-        this.productName = '*';
-        this.titleBalance = '*';
-        break;
+    if (this.product) {
+      this.productId = this.product.id;
+      switch (this.product.typeAccount) {
+        case 'DEPOSIT_ACCOUNT':
+          this.productName = this.labels.SAVING_ACCOUNT;
+          this.titleBalance = this.labels.BALANCE;
+          this.balance = this.product.productAccountBalances.saldo_disponible.amount.toLocaleString();
+          this.iconName = 'assets/icons/deposit-account.png';
+          break;
+        case 'CREDIT_CARD':
+          this.productName = this.labels.CREDIT_CARD;
+          this.titleBalance = this.labels.SAVING_ACCOUNT;
+          this.balance = this.product.productAccountBalances.cupo_disponible_compras_pesos.amount.toLocaleString();
+          this.productId = this.getMaskCreditCardNumber();
+          this.withPaymentDate = Boolean(this.product.paymentDate);
+          if (this.withPaymentDate) {
+            const date = new Date(this.product.paymentDate);
+            this.titleFooter = this.labels.PAYMENT_DATE;
+            this.informationFooter =
+              `${this.getDayWithTwoDigits(date.getDate().toString())}-${this.getDayWithTwoDigits(date.getMonth().toString())}-${date.getFullYear()}`;
+          } else {
+            const date = new Date(this.product.dueDate);
+            this.titleFooter = this.labels.DUE_DATE;
+            this.informationFooter =
+              `${this.getDayWithTwoDigits(date.getDate().toString())}-${this.getDayWithTwoDigits(date.getMonth().toString())}-${date.getFullYear()}`;
+          }
+          if (this.product.id[0] === '5') {
+            this.iconName = 'assets/icons/mastercard.svg';
+          } else {
+            this.iconName = 'assets/icons/visa.svg';
+          }
+          break;
+        case 'CURRENT_ACCOUNT':
+          this.productName = this.labels.CURRENT_ACCOUNT;
+          this.titleBalance = this.labels.AVAILABLE_BALANCE;
+          this.balance = this.product.productAccountBalances.saldo_disponible.amount.toLocaleString();
+          this.iconName = 'assets/icons/current-account.png';
+          break;
+        case 'CREDIT':
+          this.productName = this.labels.CREDIT;
+          this.titleBalance = this.labels.TO_PAY;
+          this.balance = '0';
+          this.iconName = 'assets/icons/credit.png';
+          break;
+        case 'CERTIFIED_DEPOSIT_TERM':
+          this.productName = this.labels.CDT;
+          this.titleBalance = this.labels.INVESTED_VALUE;
+          this.balance = this.product.productAccountBalances.valor_constitucion.amount.toLocaleString();
+          this.iconName = 'assets/icons/cdt.png';
+          break;
+        default:
+          this.productName = '*';
+          this.titleBalance = '*';
+          break;
+      }
     }
   }
 

@@ -1,7 +1,7 @@
-<ng-container *ngIf="product.isFirst">
+<ng-container *ngIf="product && product.isFirst">
   <label class="text-info"><b>{{productName}}</b></label>
 </ng-container>
-<div class="card product-card">
+<div *ngIf="product" class="card product-card">
   <div class="card-header">
     <img src="{{iconName}}" width="30" height="30" class="d-inline-block align-top" alt="">
     <label class="text-info view-details cursor-pointer" (click)="viewDetails()">{{labels.DETAIL}} </label>

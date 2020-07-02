@@ -36,7 +36,7 @@ export class DetailsComponent implements OnInit {
   public getDate(selectedDate: string): string {
     const date = new Date(selectedDate);
     // tslint:disable-next-line:max-line-length
-    return `${this.getDayWithTwoDigits(date.getDate().toString())}-${this.getDayWithTwoDigits(date.getMonth().toString())}-${date.getFullYear()}`;
+    return `${this.getDayWithTwoDigits(date.getDate().toString())}-${this.getDayWithTwoDigits((date.getMonth() + 1).toString())}-${date.getFullYear()}`;
   }
 
   private getDayWithTwoDigits(date: string): string {

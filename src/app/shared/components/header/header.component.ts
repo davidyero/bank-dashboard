@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {CONSTANTS} from '../../constants/constants';
 import {LABELS} from '../../constants/labels-constants';
 import {Router} from '@angular/router';
@@ -9,11 +9,10 @@ import Swal from 'sweetalert2';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public labels = LABELS.DASHBOARD;
-  constructor(private router: Router) { }
 
-  ngOnInit() {
+  constructor(private router: Router) {
   }
 
   public logout(): void {
