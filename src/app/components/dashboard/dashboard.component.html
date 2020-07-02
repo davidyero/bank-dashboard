@@ -1,1 +1,16 @@
-<p>dashboard works!</p>
+<div class="center-text pad-top-15">
+  <div><label>{{labels.GOOD_MORNING}}{{username}}</label></div>
+  <div *ngIf="isLoading" class="spinner-grow center-text" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+</div>
+<div *ngIf="!isLoading" class="dashboard">
+  <ng-container *ngFor="let product of productList">
+    <app-card
+      *ngIf="showAllBanks || product.accountInformation.bank === 'BANCO_1'"
+      class="product-card__dashboard"
+      [product]="product">
+    </app-card>
+  </ng-container>
+</div>

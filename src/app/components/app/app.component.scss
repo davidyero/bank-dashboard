@@ -5,3 +5,19 @@
     padding: 0 20px;
   }
 }
+
+.container-data {
+  height: 100%;
+}
+
+.panel {
+  &-display {
+    ::ng-deep {
+      padding: 0;
+    }
+  }
+}
+
+.container-100 {
+  height: 100%;
+}

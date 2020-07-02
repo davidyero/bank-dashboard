@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'back-dashboard';
+
+  public validateLogin(): boolean {
+    return Boolean(sessionStorage.getItem('username'));
+  }
+  public validateDetails(): boolean {
+    console.log(window.location.pathname === '/details');
+    return window.location.pathname === '/details';
+  }
 }

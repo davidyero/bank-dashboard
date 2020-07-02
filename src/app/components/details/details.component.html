@@ -1,1 +1,96 @@
-<p>details works!</p>
+<div *ngIf="product" class="card-detail center-component col-sm-8">
+  <div class="card">
+    <div class="card-header">
+      <h4>{{productInfo.productName}} - {{productInfo.productId}}</h4>
+    </div>
+    <div class="card-body">
+
+      <table class="table">
+        <tbody>
+        <tr>
+          <td class="detail-title">{{productInfo.titleBalance}}</td>
+          <td>${{productInfo.balance}}</td>
+        </tr>
+        <tr>
+          <td class="detail-title">{{labels.BANK}}</td>
+          <td>{{BANKS[product.accountInformation.bank]}}</td>
+        </tr>
+        <!--CDT-->
+        <tr *ngIf="product.openedDate">
+          <td class="detail-title">{{labels.OPEN_DATED}}</td>
+          <td>{{getDate(product.openedDate)}}</td>
+        </tr>
+        <tr *ngIf="product.closedDate">
+          <td class="detail-title">{{labels.CLOSE_DATED}}</td>
+          <td>{{getDate(product.closedDate)}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.saldo_pendiente_pago">
+          <td class="detail-title">{{labels.TO_PAY}}</td>
+          <td>${{product.productAccountBalances.saldo_pendiente_pago.amount.toLocaleString()}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.retefuente">
+          <td class="detail-title">{{labels.RETEFUENTE}}</td>
+          <td>${{product.productAccountBalances.retefuente.amount.toLocaleString()}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.intereses_causados">
+          <td class="detail-title">{{labels.INTERESTS}}</td>
+          <td>${{product.productAccountBalances.intereses_causados.amount.toLocaleString()}}</td>
+        </tr>
+        <!--CDT-->
+        <!--CREDIT_CARD-->
+        <tr *ngIf="product.dueDate">
+          <td class="detail-title">{{labels.DUE_DATE}}</td>
+          <td>{{getDate(product.dueDate)}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.pago_total_pesos">
+          <td class="detail-title">{{labels.TOTAL_PAYMENT}}</td>
+          <td>${{product.productAccountBalances.pago_total_pesos.amount.toLocaleString()}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.saldo_mora_pesos">
+          <td class="detail-title">{{labels.BALANCE_IN_DELAY}}</td>
+          <td>${{product.productAccountBalances.saldo_mora_pesos.amount.toLocaleString()}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.saldo_actual">
+          <td class="detail-title">{{labels.CURRENT_BALANCE}}</td>
+          <td>${{product.productAccountBalances.saldo_actual.amount.toLocaleString()}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.valor_pago_minimo">
+          <td class="detail-title">{{labels.MIN_NEXT_PAYMENT}}</td>
+          <td>${{product.productAccountBalances.valor_pago_minimo.amount.toLocaleString()}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.cupo_total">
+          <td class="detail-title">{{labels.TOTAL_LIMIT}}</td>
+          <td>${{product.productAccountBalances.cupo_total.amount.toLocaleString()}}</td>
+        </tr>
+        <!--CREDIT_CARD-->
+        <!--CURRENT_ACCOUNT-->
+        <tr *ngIf="product.overDraftDays">
+          <td class="detail-title">{{labels.OVERDRAFT_DAYS}}</td>
+          <td>{{product.overDraftDays}}</td>
+        </tr>
+        <tr *ngIf="product.status">
+          <td class="detail-title">{{labels.STATUS}}</td>
+          <td>{{product.status === 'ACTIVE' ? 'Activa' : 'Inactiva'}}</td>
+        </tr>
+        <tr *ngIf="product.locked">
+          <td class="detail-title">{{labels.LOCKED}}</td>
+          <td>{{product.locked ? 'Si' : 'No'}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.cupo_disponible_sobregiro">
+          <td class="detail-title">{{labels.OVERDRAFT_AVAILABLE}}</td>
+          <td>${{product.productAccountBalances.cupo_disponible_sobregiro.amount.toLocaleString()}}</td>
+        </tr>
+        <tr *ngIf="product.productAccountBalances && product.productAccountBalances.cupo_total">
+          <td class="detail-title">{{labels.TOTAL_LIMIT}}</td>
+          <td>${{product.productAccountBalances.cupo_total.amount.toLocaleString()}}</td>
+        </tr>
+        <!--CURRENT_ACCOUNT-->
+        </tbody>
+      </table>
+
+    </div>
+    <div class="center-text margin-bottom-20">
+      <button class="btn btn-success" (click)="goToDashboard()">Regresar</button>
+    </div>
+  </div>
+</div>

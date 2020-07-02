@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LABELS} from '../../shared/constants/labels-constants';
 import {UserService} from '../../shared/services/user.service';
 import {Router} from '@angular/router';
@@ -12,7 +12,7 @@ import {finalize} from 'rxjs/operators';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   public labels = LABELS.LOGIN;
   public loginFormGroup: FormGroup;
@@ -28,6 +28,12 @@ export class LoginComponent {
       username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+
+  ngOnInit(): void {
+    if (Boolean(sessionStorage.getItem('username'))) {
+      this.router.navigate([CONSTANTS.ROUTES.DASHBOARD]);
+    }
   }
 
   public onSubmit(): boolean {
