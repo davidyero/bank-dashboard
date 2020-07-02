@@ -2,14 +2,14 @@
 
 La aplicación tiene tres componentes, las cuales son Login, Dashboard y Details:
 
-###Login
+Login
 - Se puede acceder con cualquier nombre pero la contraseña debe ser 123456.
 - El formulario valida campos vacios.
 - El servicio valida que la contraseña sea 123456.
 - Al loggearse el nombre del usuario se guarda en el sesionStorage con la key = username
 simulando un token para realizar una validación con el SessionGuard.
 
-###Dashboard
+Dashboard
 - Se implementa grid layout para el manejo de las cards de acuerdo al tamaño de la pantalla,
 maximo 4 cards por pantalla y va disminuyendo de acuerdo a la dimensión.
 - El nombre que se muestra de bienvenida es dinamico y se obtiene del sessionStorage
@@ -21,17 +21,17 @@ gracias multiselect.
 - Se hace el tratamiento a algunos datos mediante un switch de acuerdo al tipo de producto
 con el fin de mostrar mensajes correspondientes o nombres de productos específicos.
 
-###Details
+Details
 - Muestra de acuerdo al tipo de producto se muestran los detalles que trae el servicio.
 
 
 La aplicación tiene dos servicios:
 
-###UserService
+UserService
 - Realiza el login, si es correcto (clave **123456** con algún nombre de usuario) 
 devuelve un 200 si es incorrecto devuelve un 404.
 
-###ProductService
+ProductService
 - Retorna los productos con un delay de 2000 milisengudos para ver un pequeño loading 
 en el dashboard (simulando un comportamiento real), tomando la data enviada en un archivo
 llamado **all-products-mocks.ts**.
@@ -39,14 +39,14 @@ llamado **all-products-mocks.ts**.
 seleccionado esto con el fin de no replicar código y para obtener fácilmente la información
 del producto seleccionado en los detalles
 
-###Pruebas Unitarias
+Pruebas Unitarias
 - Se comenta una prueba en dashboardComponent puesto que no funciona con el delay de 2000
 milisegundos nombrado anteriormente con el fin de que se vea corriendo en local. Si se 
 quita el delay y se descomenta la prueba, esta funcionara correctamente
 
 - Se cubre el **94.32%** de código
 
-###Otros
+Otros
 - Toda la pagina tiene comportamiento responsive
 - Las Cards, el panel y el header son componentes independientes
 - La mayoría del texto se encuentra en constantes
