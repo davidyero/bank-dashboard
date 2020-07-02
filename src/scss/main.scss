@@ -4,10 +4,16 @@
 
 html, body, .container-app {
   height: 100%;
+  width: 100%;
 }
 
 .hidden-sm {
   @media (max-width: map-get(map_get($break-points, sm), max-width)) {
+    display: none;
+  }
+}
+.hidden-md {
+  @media (min-width: map-get(map_get($break-points, md), min-width)) {
     display: none;
   }
 }
@@ -18,4 +24,8 @@ html, body, .container-app {
 
 .center-text {
   text-align: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

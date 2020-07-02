@@ -4,6 +4,7 @@ import {LoginComponent} from './components/login/login.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {SessionGuard} from './shared/guards/session.guard';
 import {CONSTANTS} from './shared/constants/constants';
+import {DetailsComponent} from './components/details/details.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: CONSTANTS.ROUTES.DASHBOARD,
     component: DashboardComponent,
+    canActivate: [SessionGuard]
+  },
+  {
+    path: CONSTANTS.ROUTES.DETAILS,
+    component: DetailsComponent,
     canActivate: [SessionGuard]
   },
   {

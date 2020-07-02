@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
-import {delay} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class UserService {
     const validation = user === 'Julian' && password === '123456';
     if (validation) {
       sessionStorage.setItem('username', user);
-      return of(validation).pipe(delay(2000));
+      return of(validation);
     } else {
       return throwError({
         status: 404

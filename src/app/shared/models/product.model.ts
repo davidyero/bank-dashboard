@@ -1,4 +1,3 @@
-import {TypeAccountEnum} from '../enums/type-account.enum';
 import {ProductAccountBalanceModel} from './product-account-balance.model';
 
 export interface ProductModel {
@@ -9,6 +8,7 @@ export interface ProductModel {
   openedDate?: string;
   closedDate?: string;
   dueDate?: string;
+  paymentDate?: string;
   lastTransactionDate?: string;
   status?: string;
   overDraftDays?: number;
@@ -16,6 +16,7 @@ export interface ProductModel {
   term?: PeriodicityModel;
   productAccountBalances?: ProductAccountBalanceModel;
   capacity?: number;
+  isFirst?: boolean;
 }
 
 export interface AccountInformationModel {

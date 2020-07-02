@@ -1,0 +1,57 @@
+@import "src/scss/main";
+
+.product-card {
+  display: grid;
+  width: 280px;
+  height: 300px;
+  justify-self: center;
+
+  &__name {
+    label {
+      display: block;
+      margin: 0;
+
+      &:first-child {
+        font-weight: bold;
+        font-size: 19px;
+      }
+    }
+  }
+  &__balance {
+    label {
+      display: block;
+      margin: 0;
+
+      &:last-child {
+        font-weight: bold;
+        font-size: 19px;
+      }
+    }
+  }
+  .card-header {
+    height: 50px;
+    padding: 10px;
+  }
+
+  .card-footer {
+    background: $white;
+
+    .progress {
+      height: 8px;
+    }
+
+    label {
+      display: block;
+      margin: 0;
+
+      &:first-child {
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.view-details {
+  float: right;
+}

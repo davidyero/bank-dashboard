@@ -1,0 +1,14 @@
+@import "src/scss/main";
+
+.panel {
+  background: $background-panel;
+  height: 500px;
+  padding-right: 0;
+  width: 100%;
+
+  &-display {
+    ::ng-deep {
+      padding: 0;
+    }
+  }
+}

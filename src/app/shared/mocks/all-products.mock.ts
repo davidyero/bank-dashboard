@@ -197,6 +197,7 @@ export const ALL_PRODUCTS: ProductModel[] = [
     id: '4544769920667610',
     typeAccount: 'CREDIT_CARD',
     dueDate: '2019-12-26T00:00:00',
+    paymentDate: '2020-12-01T10:32:44.619',
     productAccountBalances: {
       pago_total_pesos: {
         amount: -126012.54,
@@ -239,6 +240,7 @@ export const ALL_PRODUCTS: ProductModel[] = [
     id: '5201897302970640',
     typeAccount: 'CREDIT_CARD',
     dueDate: '2019-12-05T00:00:00',
+    paymentDate: '2020-12-01T10:32:44.619',
     productAccountBalances: {
       pago_total_pesos: {
         amount: 105968,
@@ -262,6 +264,48 @@ export const ALL_PRODUCTS: ProductModel[] = [
       },
       valor_pago_minimo: {
         amount: 105968,
+        currencyCode: 'COP'
+      },
+      cupo_total: {
+        amount: 25000000,
+        currencyCode: 'COP'
+      }
+    },
+    capacity: 99.576128
+  },
+  {
+    accountInformation: {
+      accountIdentifier: '5201897302979999',
+      productType: 'CREDIT_CARD',
+      bank: 'BANCO_1'
+    },
+    locked: true,
+    id: '5201897302979999',
+    typeAccount: 'CREDIT_CARD',
+    dueDate: '2019-12-05T00:00:00',
+    productAccountBalances: {
+      pago_total_pesos: {
+        amount: 5000000,
+        currencyCode: 'COP'
+      },
+      cupo_disponible_avances_pesos: {
+        amount: 20000000,
+        currencyCode: 'COP'
+      },
+      saldo_mora_pesos: {
+        amount: 5000,
+        currencyCode: 'COP'
+      },
+      saldo_actual: {
+        amount: 5005000,
+        currencyCode: 'COP'
+      },
+      cupo_disponible_compras_pesos: {
+        amount: 20000000,
+        currencyCode: 'COP'
+      },
+      valor_pago_minimo: {
+        amount: 2500000,
         currencyCode: 'COP'
       },
       cupo_total: {

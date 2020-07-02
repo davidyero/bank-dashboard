@@ -6,5 +6,11 @@ export const CONSTANTS = {
     LOGIN: 'login',
     DASHBOARD: 'dashboard',
     DETAILS: 'details'
+  },
+  BANKS: {
+    BANCO_1: 'BANCO AV VILLAS',
+    BANCO_2: 'BANCO POPULAR',
+    BANCO_3: 'BANCO DEL OCCIDENTE',
+    BANCO_4: 'BANCO DE BOGOTÁ',
   }
-}
+};

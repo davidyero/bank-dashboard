@@ -1,1 +1,27 @@
-<p>card works!</p>
+<ng-container *ngIf="product.isFirst">
+  <label class="text-info"><b>{{productName}}</b></label>
+</ng-container>
+<div class="card product-card">
+  <div class="card-header">
+    <img src="{{iconName}}" width="30" height="30" class="d-inline-block align-top" alt="">
+    <label class="text-info view-details cursor-pointer" (click)="viewDetails()">{{labels.DETAIL}} </label>
+  </div>
+  <div class="card-body pad-top-5 pad-bottom-5">
+    <div class="product-card__name">
+      <label>{{productName}}</label>
+      <label>Nro. {{productId}}</label>
+    </div>
+    <div class="product-card__balance pad-top-10">
+      <label>{{titleBalance}}</label>
+      <label >${{balance}}</label>
+    </div>
+  </div>
+  <div *ngIf="titleFooter" class="card-footer">
+    <label>{{titleFooter}}</label>
+    <label>{{informationFooter}}</label>
+    <label *ngIf="!withPaymentDate">{{labels.TOTAL}} ${{product.productAccountBalances.pago_total_pesos.amount.toLocaleString()}}</label>
+    <div *ngIf="!withPaymentDate" class="progress">
+      <div id="{{product.id}}" class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+</div>
