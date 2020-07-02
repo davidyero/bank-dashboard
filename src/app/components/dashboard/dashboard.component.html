@@ -3,14 +3,22 @@
   <div *ngIf="isLoading" class="spinner-grow center-text" style="width: 3rem; height: 3rem;" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-
+  <mat-form-field *ngIf="!isLoading" class="select-banks" appearance="fill">
+    <mat-label>Selecciona tus bancos</mat-label>
+    <mat-select (selectionChange)="selectBank()" [formControl]="formBanks" multiple>
+      <mat-option value="ALL_BANKS">Todos los bancos</mat-option>
+      <mat-option *ngFor="let bank of banks" value="{{bank[0]}}">{{bank[1]}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
+
 <div *ngIf="!isLoading" class="dashboard">
   <ng-container *ngFor="let product of productList">
     <app-card
-      *ngIf="showAllBanks || product.accountInformation.bank === 'BANCO_1'"
+      *ngIf="validateProductBank(product.accountInformation.bank)"
       class="product-card__dashboard"
       [product]="product">
     </app-card>
   </ng-container>
+  <div *ngIf="productList.length === 0 || formBanks.value.length === 0">No hay información para mostrar</div>
 </div>

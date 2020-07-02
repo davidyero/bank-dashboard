@@ -3,12 +3,19 @@
 .panel {
   background: $background-panel;
   height: 500px;
-  padding-right: 0;
   width: 100%;
 
   &-display {
     ::ng-deep {
       padding: 0;
+    }
+  }
+
+  .panel-options {
+    border-top: 1px $gray-border solid;
+
+    &:last-child {
+      border-bottom: 1px $gray-border solid;
     }
   }
 }

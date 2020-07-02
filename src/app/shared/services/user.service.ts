@@ -9,7 +9,7 @@ export class UserService {
   constructor() { }
 
   public login(user: string, password: string): Observable<boolean> {
-    const validation = user === 'Julian' && password === '123456';
+    const validation = Boolean(user) && password === '123456';
     if (validation) {
       sessionStorage.setItem('username', user);
       return of(validation);

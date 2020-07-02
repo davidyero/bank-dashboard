@@ -11,7 +11,6 @@ export class AppComponent {
     return Boolean(sessionStorage.getItem('username'));
   }
   public validateDetails(): boolean {
-    console.log(window.location.pathname === '/details');
     return window.location.pathname === '/details';
   }
 }
