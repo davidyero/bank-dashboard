@@ -7,6 +7,7 @@ import {ProductService} from '../../services/product.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ALL_PRODUCTS} from '../../mocks/all-products.mock';
 import {CONSTANTS} from '../../constants/constants';
+import {LABELS} from '../../constants/labels-constants';
 
 @Injectable()
 export class DummyProvider {
@@ -56,8 +57,8 @@ describe('CardComponent', () => {
 
       component.ngOnInit();
 
-      expect(component.productName).not.toBeNull();
-      expect(component.titleBalance).not.toBeNull();
+      expect(component.productName).toBe(LABELS.PRODUCTS.CDT);
+      expect(component.iconName).toBe('assets/icons/cdt.png');
     });
 
     it('should assign value to constants - CREDIT', () => {
@@ -66,8 +67,8 @@ describe('CardComponent', () => {
 
       component.ngOnInit();
 
-      expect(component.productName).not.toBeNull();
-      expect(component.titleBalance).not.toBeNull();
+      expect(component.productName).toBe(LABELS.PRODUCTS.CREDIT);
+      expect(component.iconName).toBe('assets/icons/credit.png');
     });
 
     it('should assign value to constants - CREDIT_CARD', () => {
@@ -76,8 +77,9 @@ describe('CardComponent', () => {
 
       component.ngOnInit();
 
-      expect(component.productName).not.toBeNull();
-      expect(component.titleBalance).not.toBeNull();
+      expect(component.productId).toBe('**** **** **** 7610');
+      expect(component.productName).toBe(LABELS.PRODUCTS.CREDIT_CARD);
+      expect(component.iconName).toBe('assets/icons/visa.svg');
     });
 
     it('should assign value to constants - CREDIT_CARD', () => {
@@ -86,8 +88,9 @@ describe('CardComponent', () => {
 
       component.ngOnInit();
 
-      expect(component.productName).not.toBeNull();
-      expect(component.titleBalance).not.toBeNull();
+      expect(component.productId).toBe('**** **** **** 9999');
+      expect(component.productName).toBe(LABELS.PRODUCTS.CREDIT_CARD);
+      expect(component.iconName).toBe('assets/icons/mastercard.svg');
     });
 
     it('should assign value to constants - CURRENT_ACCOUNT', () => {
@@ -96,8 +99,8 @@ describe('CardComponent', () => {
 
       component.ngOnInit();
 
-      expect(component.productName).not.toBeNull();
-      expect(component.titleBalance).not.toBeNull();
+      expect(component.productName).toBe(LABELS.PRODUCTS.CURRENT_ACCOUNT);
+      expect(component.iconName).toBe('assets/icons/current-account.png');
     });
 
     it('should assign value to constants - DEPOSIT_ACCOUNT', () => {
@@ -106,8 +109,8 @@ describe('CardComponent', () => {
 
       component.ngOnInit();
 
-      expect(component.productName).not.toBeNull();
-      expect(component.titleBalance).not.toBeNull();
+      expect(component.productName).toBe(LABELS.PRODUCTS.SAVING_ACCOUNT);
+      expect(component.iconName).toBe('assets/icons/deposit-account.png');
     });
   });
 
